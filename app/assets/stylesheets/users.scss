@@ -1,0 +1,58 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-post {
+    color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.btn-user-follow {
+    color: blue;
+    font-size: 20px;
+    border: 1px solid blue;
+    border-radius: 25px;
+}
+
+.btn-follow {
+    color: blue;
+    background-color: lightgrey;
+    border: 1px solid blue;
+    border-radius: 25px;
+}
+
+.container_users {
+    float: center;
+    text-align: center;
+    background: lightgrey;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,0,0, 0.09);
+}
+
+.container_users_posts {
+    background: white;
+    padding: 20px;
+    margin-left: 60px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 900px;
+    border-top: 2px solid rgba(0,0,0, 0.09);
+    border-bottom: 2px solid rgba(0,0,0, 0.09);
+}
+
+.container_followed_followers {
+    text-align: left;
+    background: lightgrey;
+    padding: 0px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 1px;
+    margin-bottom: 2px;
+    max-width: 600px;
+    border: 1px solid rgba(0,0,0, 0.09);
+}
+

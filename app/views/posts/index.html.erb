@@ -1,0 +1,19 @@
+
+<div id = "tag_cloud", class='tag_container', style = "float: right;">
+    <h4>Featured Tags</h4>
+    <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
+        <%=  link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+</div>
+
+<div id = "posts", style = "float: left;">
+    <% @posts.joins("LEFT OUTER JOIN likeposts ON likeposts.post_id = posts.id").group(:id).order("count(*) DESC").limit(5).each do |post| %>
+        <div class="container">
+            <p><%= link_to User.find_by_email(post.author).name, user_path(User.find_by_email(post.author)), :class => 'btn btn-user' %></p>
+            <p>Posted : <%= post.created_at.to_date %></p>
+            <p><%= link_to post.title, post_path(post), :class => 'btn btn-title' %></p>
+            <p><%= truncate post.body, length: 160 %></p>
+            <p> <i class="fa fa-thumbs-up"></i> <%= post.postlikers.count %> </p> 
+        </div>
+    <% end %>
+</div>

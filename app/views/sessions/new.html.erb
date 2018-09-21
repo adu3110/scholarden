@@ -1,0 +1,24 @@
+<div class = "container_login", style = "float: center;">
+<h2>Log In</h2>
+
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, id: "flash_#{name}" %>
+<% end %>
+<% flash.clear %>
+
+<%= form_tag sessions_path do %>
+    <div class="field">
+        <%= label_tag :email %> <br/>
+        <%= text_field_tag :email, params[:email] %>
+    </div>
+
+    <div class="field">
+        <%= label_tag :password %> <br/>
+        <%= password_field_tag :password %>
+    </div>
+
+    </br>
+    <div class='actions'> <%= submit_tag "Log In", :class => 'btn btn-login' %></div>
+
+<%end %>
+</div>

@@ -1,0 +1,15 @@
+<div class="container_followed_followers">
+<h2>Following</h2>
+
+<% if @following.any? %>
+    <% @following.each do |user| %>
+        
+        <p><%= link_to user.name, user_path(User.find_by_email(user.email)), 
+        :class => 'btn btn-user-follow' %></p>
+        
+    <% end %>
+    
+<% else %>
+    <p>The user is not following anyone</p>
+<% end %>
+</div>

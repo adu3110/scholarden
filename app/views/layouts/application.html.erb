@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
+
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    
+    <title>The Scholar Den</title>
+    <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
+    
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark navbar-default" style = 'background-color: white;'>
+      <i class="fa fa-graduation-cap"></i> &nbsp; &nbsp;
+      <a class="navbar-brand">The Scholar Den</a>
+
+      <div class="collapse navbar-collapse" id="navbarPages">
+        <ul class="navbar-nav mr-auto">
+          <li><%= link_to "Home", home_path, :class => 'btn-home' %></li> &nbsp; &nbsp;
+          <li><%= link_to "About", about_path, :class => 'btn-home'  %></li>      
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          <li> 
+          <%= form_tag posts_path, :method => 'get'  do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Posts",
+            class: 'text_field btn-default' %>
+            <%= submit_tag "search", class: "btn btn-success btn-md", style: "display: none;" %>
+          <% end %>
+          </li>  &nbsp; &nbsp;
+          <li><%= link_to "Create Post", new_post_path, :class => 'btn btn-post' %></li>  &nbsp; &nbsp;
+
+          <% if current_user %>
+            <li><%= link_to "Conversations", conversationhome_path, :class => 'btn btn-post' %></li>  &nbsp; &nbsp;
+            <li>Logged in as <%= current_user.name%></li> &nbsp; &nbsp;
+            <li> <%= link_to "Log Out", session_path("current"), method: "delete", 
+            :class => 'btn btn-signup-login' %></li>
+          <% else %>
+            <li><%= link_to "Sign Up", signup_path, :class => 'btn btn-signup-login'%></li>  &nbsp; &nbsp;    
+            <li><%= link_to "Log In", login_path, :class => 'btn btn-signup-login' %></li>  &nbsp; &nbsp;
+          <% end %>
+
+          
+        </ul>
+      </div>
+    </nav>
+
+
+    <div class = 'flash_container'>
+
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+      <% flash.clear %>
+      <%= yield %>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<div class = "container_users", style = "float: center;">
+<h2><%= @user.name %></h2>
+<h4><%= @user.designation %></h4>
+<p><%=  @user.about %></p>
+<p> <%= link_to "followers", showfollowers_path(email: @user.email),  
+:class => 'btn btn-post' %> 
+<%=  @user.followers.count %> &nbsp; &nbsp; 
+<%= link_to "following", showfollowing_path(email: @user.email),  
+:class => 'btn btn-post' %> <%=  @user.following.count %> </p>
+
+<% if current_user %>
+    <% if current_user.email != @user.email %>
+        <% if current_user.following?(@user) %>
+            <%= button_to "UnFollow", friendships_path(id: @user.id), method: :delete, :class => 'btn btn-follow' %>
+        <% else %>
+            <%= button_to "Follow", friendships_path(id: @user.id), :class => 'btn btn-follow' %>
+        <% end %>
+        </br>
+        <%= button_to "Chat", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: "post", :class => 'btn btn-follow' %>
+        
+    <% end %>
+<% end %>
+
+<% if current_user %>
+    <% if current_user.email == @user.email %>
+        <%= link_to "Edit", edit_user_path(@user), :class => 'btn btn-follow' %>
+        
+    <% end %>
+<% end %>
+</div>
+
+<div class = "container_users_posts", style = "float: center;">
+    <h4>Latest Posts</h4>
+    <% @userposts = Post.where(author: @user.email) %>
+
+    <% @userposts.order(created_at: :desc).each do |post| %>
+        <div class="container">
+            <p><%= link_to post.title, post_path(post), :class => 'btn btn-title' %></p>
+            <p>Posted : <%= post.created_at.to_date %></p>
+            <p><%= truncate post.body, length: 160 %></p>
+            <p> <i class="fa fa-thumbs-up"></i> <%= post.postlikers.count %> </p> 
+        </div>
+    <% end %>
+
+</div>

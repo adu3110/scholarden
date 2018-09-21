@@ -1,0 +1,31 @@
+
+<div class = "container_conversations", style = "float: center;">
+<h2>My Inbox</h2>
+<div class="panel panel-default">
+<div class="col-lg-6">
+  <div id="mail">
+    <h3 class="panel-heading">All Conversations:</h3>
+    <div class="panel-body">
+     <div class="item">
+     <%if @conversations.count > 0 %>
+      <% @conversations.order(created_at: :desc).each do |conversation| %>
+      <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+       <% if conversation.sender_id == current_user.id %>
+         <% recipient = User.find(conversation.recipient_id) %>
+       <% else %>
+         <% recipient = User.find(conversation.sender_id) %>
+       <% end %>
+       <p><%= link_to recipient.name, conversation_messages_path(conversation), 
+       :class => "btn btn-user"%></p>
+      <% end %>
+     <% end %>
+     <% else %>
+      <h4>You have no conversations</h4>
+     <% end%>
+     </div>
+    </div>
+   </div>
+  
+</div>
+</div>
+</div

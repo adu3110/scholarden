@@ -1,0 +1,47 @@
+<h1>Edit User Details </h1>
+
+<%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+        <div class="error_messages">
+            <h2> Form is invalid! </h2>
+            <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                    <l1> <%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field" style = "display: none;">
+        <%= f.label :email %> <br/>
+        <%= f.text_field :email, value: current_user.email %>
+    </div>
+
+    <div class="field" style = "display: none;">
+        <%= f.label :password %> <br/>
+        <%= f.password_field :password, value: current_user.password %>
+    </div>
+
+    <div class="field" style = "display: none;">
+        <%= f.label :password_confirmation %> <br/>
+        <%= f.password_field :password_confirmation, value: current_user.password %>
+    </div>
+
+    <div class="field">
+        <%= f.label :name %> <br/>
+        <%= f.text_field(:name, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="field">
+        <%= f.label :designation %> <br/>
+        <%= f.text_field(:designation, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="field">
+        <%= f.label :about %> <br/>
+        <%= f.text_area(:about, {:class => 'form-control'}) %>
+    </div>
+
+    <div class='actions'> <%= f.submit({:class => 'btn btn-primary'}) %></div>
+
+<% end %>

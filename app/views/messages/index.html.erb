@@ -1,0 +1,40 @@
+
+<div class = "container_messages", style = "float: center;">
+<%= link_to "Back to Inbox",
+conversationhome_path, { :class => 'tooltips, btn btn-back', 'data-toggle' => 'tooltip',
+   'data-placement' => 'right', :title => 'Back To Inbox' } %>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+ <% @messages.each do |message| %>
+  <% if message.body %>
+   <% user = User.find(message.user_id) %>
+   <div class="item">
+<div class="panel-heading">
+       <div class="header"><strong><%= user.name %> </strong><%= message.message_time %></div>
+      <div class="list">
+       <div class="item">
+        <i class="right triangle icon"></i>
+        <%= message.body %>
+      </div>
+    </div>
+   </div>
+ </div>
+ <% end %>
+<% end %>
+</div>
+</div>
+<div class="col-md-10 col-md-offset-1">
+<%= form_for [@conversation, @message] do |f| %>
+<div class="form-group">
+  <%= f.text_area :body, class: "form-control" %>
+</div>
+  <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+<div>
+  <%= f.submit "Send", class: "btn btn-send" %>
+</div>
+<% end %>
+</div>
+</div>

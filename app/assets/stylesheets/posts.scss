@@ -1,0 +1,137 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.btn-user {
+    color: blue;
+    font-size: 16px;
+}
+
+.btn-home {
+    color: black;
+    font-size: 14px;
+}
+
+.btn-title {
+    color: black;
+    font-size: 30px;
+    padding: 0px;
+    margin-left: 0px;
+}
+
+.btn-signup-login {
+    color: blue;
+    border: 1px solid blue;
+    border-radius: 25px;
+}
+
+.btn-post {
+    color: black;
+    border: 1px solid lightgrey;
+    border-radius: 25px;
+}
+
+#tag_cloud {
+    width: 480px;
+    line-height: 1.6em;
+    .s { font-size: 0.8em; color : #000; }
+    .m { font-size: 1.2em; color : blue;}
+    .l { font-size: 1.6em; color : rgb(239, 39, 189);}
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    margin-left: 60px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 700px;
+    border: 1px solid rgba(0,0,0, 0.09);
+    transition: all 0.7s linear;
+	-webkit-transition: all 0.7s linear;
+	-moz-transition: all 0.7s linear;
+	-o-transition: all 0.7s linear;
+	-ms-transition: all 0.7s linear;
+}
+
+.container:hover{ 
+    -webkit-transform: scale(1.1); 
+    -moz-transition: scale(1.1);
+	-o-transition: scale(1.1);
+    -ms-transition: scale(1.1);
+}
+
+.container_posts {
+    background: white;
+    padding: 20px;
+    margin-left: 60px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 900px;
+    border: 1px solid rgba(0,0,0, 0.09);
+    
+}
+
+
+
+.container_posts_meta {
+    background: white;
+    padding: 5px;
+    margin-left: 60px;
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    max-width: 900px;
+    border-top: 2px solid rgba(0,0,0, 0.09);
+    border-bottom: 2px solid rgba(0,0,0, 0.09);
+}
+
+.container_posts_comments {
+    background: white;
+    padding: 20px;
+    margin-left: 60px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 900px;
+    border-top: 2px solid rgba(0,0,0, 0.09);
+    border-bottom: 2px solid rgba(0,0,0, 0.09);
+}
+
+.container_comment {
+    align: center;
+    background: #fbfbfb;
+    padding: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    max-width: 800px;
+    border: 1px solid rgba(0,0,0, 0.09);
+}
+
+.tag_container {
+    padding: 0.5em 1em;
+    background: #FEFEFE;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 13px;
+    margin-top: 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-top: 2px solid rgba(0,0,0, 0.09);
+    border-bottom: 2px solid rgba(0,0,0, 0.09);
+}
+
+.form_body {
+    background: white;
+    padding: 20px;
+    margin-left: 60px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 900px;
+    max-height: 1600px;
+}
