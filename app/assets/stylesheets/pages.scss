@@ -1,3 +1,13 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container {
+    background: white;
+    padding: 20px;
+    margin-left: 60px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 700px;
+    border: 1px solid rgba(0,0,0, 0.09);
+}
